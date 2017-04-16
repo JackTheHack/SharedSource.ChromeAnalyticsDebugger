@@ -1,0 +1,35 @@
+{
+  "name": "Sitecore Analytics Developer Tools",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Adds a tab to developer tools with Sitecore analytics debugging information.",
+  "devtools_page": "devtools_index.html",
+  "browser_action": {
+    "default_icon": "img/icon.png",
+	"default_popup": "popup.html"
+  },  
+  "permissions": [
+    "storage",
+	"webRequest",
+	"webRequestBlocking",
+    "tabs",
+	"cookies",    
+    "<all_urls>"
+  ],
+   "background": {
+    "scripts": ["js/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],      
+      "js": ["js/contentscript.js"]
+    }
+  ],
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+   "web_accessible_resources": [
+    "images/*.png",
+    "css/*.css",
+    "script/*.js",
+    "templates/*"
+  ]
+}

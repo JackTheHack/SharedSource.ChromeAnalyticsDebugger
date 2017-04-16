@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" >
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<style type="text/css">
+.profile-section{
+	padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.profile-identifier
+{
+	color:lightgray;
+}
+
+.total-values
+{
+	color:blue;
+}
+
+.matched-pattern-id{
+	color:lightgray;
+}
+</style>
+</head>
+<body>
+<div id="noDebug" class='text-center' style="margin-top:100px;">
+<div>Enable Sitecore debugging</div>
+<div><input type='text' id="secretKey" placeholder='Secret key(optional)' style="width:300px;margin-top:5px;" /></div>
+<div style="margin-top:20px"><button type="button" id="btnEnable" class="btn btn-lg btn-primary" href="#">Start</button></div>
+</div>
+
+<div id="enabledDebugging" class="hidden">
+	<div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist" id="tabs">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Page</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Visit</a></li>
+	<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Geolocation</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Settings</a></li>
+
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content" style="padding:20px;">
+    <div role="tabpanel" class="tab-pane active" id="home">		
+		<div class="container-fluid">		
+			<div class="row">
+				<div class="col-xs-12">
+				<h2>Page Profile Values:</h2>
+				</div>
+			</div>
+			<div class="row" id="pageValues">
+			</div>
+		</div>
+	</div>
+    <div role="tabpanel" class="tab-pane" id="profile">
+		<div class="container-fluid">		
+			<div class="row">
+				<div class="col-xs-12">
+				<h2>Matched Profiles:</h2>
+				</div>
+				<div class="col-xs-12" id="contactIdentifierBlock">
+					<b>Contact Identifier:</b>
+					<span id="contactIdentifier"></span>
+				</div>
+			</div>			
+			<div class="row" id="matchedProfiles">
+			</div>
+		</div>
+	</div>
+	<div role="tabpanel" class="tab-pane" id="settings">
+		<div class="container-fluid">		
+			<div class="row">
+				<div class="col-xs-12">
+				<h2>Geolocation:</h2>
+				<div id="geolocationBlock"></div>
+				</div>
+			</div>			
+		</div>
+	</div>
+    <div role="tabpanel" class="tab-pane" id="messages">	
+		<div style="margin-top:20px" class="text-center"><button type="button" id="btnDisable" class="btn btn-lg btn-primary" href="#">Stop Debugging</button></div>
+	</div>
+
+  </div>
+  <script type='text/javascript' src='js/jquery-2.0.3.min.js'></script> 
+  <script type='text/javascript' src="js/main.js"></script>
+</div>
+</div>
+</body>
+</html>

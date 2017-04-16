@@ -1,0 +1,74 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>f6fa06d1-8cd3-4924-bec1-43064fd008f7</ProjectGuid>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <SourceWebPhysicalPath>..\SharedSource.ChromeAnalyticsDebugger</SourceWebPhysicalPath>
+    <SourceWebProject>{38d68855-3a83-4912-9f50-fd4a4cb4c72d}|SharedSource.ChromeAnalyticsDebugger\SharedSource.ChromeAnalyticsDebugger.csproj</SourceWebProject>
+    <SourceWebVirtualPath>/SharedSource.ChromeAnalyticsDebugger.csproj</SourceWebVirtualPath>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <EnableUpdateable>true</EnableUpdateable>
+    <UseMerge>true</UseMerge>
+    <SingleAssemblyName>SharedSource.TDS.LogTail</SingleAssemblyName>
+    <UseWebConfigReplacement>false</UseWebConfigReplacement>
+    <DeleteAppCodeCompiledFiles>true</DeleteAppCodeCompiledFiles>
+    <LegacyFileReplacement>false</LegacyFileReplacement>
+    <AssemblyName>SharedSource.TDS.LogTail</AssemblyName>
+    <Name>SharedSource.TDS.LogTail</Name>
+    <RootNamespace>SharedSource.TDS.LogTail</RootNamespace>
+    <EnableCodeGeneration>True</EnableCodeGeneration>
+    <ManageRoles>False</ManageRoles>
+    <SitecoreDatabase>master</SitecoreDatabase>
+    <AssemblyStatus>Include</AssemblyStatus>
+    <FieldsForCodeGen>Title,Blob,Shared,Unversioned,Default value,Validation,ValidationText,__Long description,__Short description,__Display name,__Hidden,__Read Only,__Sortorder</FieldsForCodeGen>
+    <CodeGenFile>Models.cs</CodeGenFile>
+    <CodeGenTargetProject>SharedSource.PdfPrint</CodeGenTargetProject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <RecursiveDeployAction>Ignore</RecursiveDeployAction>
+    <PackageName>SharedSource.TDS.ChromeAnalyticsDebugger</PackageName>
+    <GeneratePackage>True</GeneratePackage>
+    <SeperateFilesAndItems>False</SeperateFilesAndItems>
+    <PackageExcludeCode>False</PackageExcludeCode>
+    <AddDateTimeToPackageName>False</AddDateTimeToPackageName>
+    <PackageAuthor>Jack Spektor</PackageAuthor>
+    <PackagePublisher>Jack Spektor</PackagePublisher>
+    <PackageReadme>
+    </PackageReadme>
+    <PackageVersion>1.0.0.0</PackageVersion>
+    <SitecoreAssemblyPath>../Lib/</SitecoreAssemblyPath>
+    <SitecoreWebUrl>http://azure3.local/</SitecoreWebUrl>
+    <InstallSitecoreConnector>True</InstallSitecoreConnector>
+    <DisableFileDeployment>False</DisableFileDeployment>
+    <SitecoreDeployFolder>C:\inetpub\wwwroot\azure3\Website\</SitecoreDeployFolder>
+    <SitecoreAccessGuid>d5b7ca5a-8984-420a-9e76-a32fd62b8664</SitecoreAccessGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <RecursiveDeployAction>Ignore</RecursiveDeployAction>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttributes Include="AssemblyFileVersion">
+      <Value>$(AssemblyFileVersion)</Value>
+    </AssemblyAttributes>
+    <AssemblyAttributes Include="AssemblyVersion">
+      <Value>$(AssemblyVersion)</Value>
+    </AssemblyAttributes>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharedSource.ChromeAnalyticsDebugger\SharedSource.ChromeAnalyticsDebugger.csproj">
+      <Project>{38d68855-3a83-4912-9f50-fd4a4cb4c72d}</Project>
+      <Name>SharedSource.ChromeAnalyticsDebugger</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ExcludedAssemblies Include="SharedSource.ChromeAnalyticsDebugger.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" />
+</Project>
