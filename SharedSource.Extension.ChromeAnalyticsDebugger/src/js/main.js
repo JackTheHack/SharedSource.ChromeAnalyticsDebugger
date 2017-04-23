@@ -109,48 +109,38 @@ document.addEventListener('DOMContentLoaded', init);
 
 if(chrome.devtools)
 {
-	
-	chrome.devtools.inspectedWindow.eval("window.location.origin", function(result){
-		windowHost = result;			
-				
-		
 		chrome.devtools.network.onRequestFinished.addListener(function(request) {
 			
-			//var requestUrl = new URL(request.request.url);
-			//var windowHostUrl = new URL(windowHost);
-			
-			//if(requestUrl.host !== windowHostUrl.host)
-			//{
-			//	return;
-			//}
-			
-			headers = request.response.headers;
-			var analyticsDataHeader = headers.find(function(x) { return x.name.toLowerCase() === 'sitecore.analytics.data' });
-			var analyticsDataError = headers.find(function(x) { return x.name.toLowerCase() === 'sitecore.analytics.error' });
-      
-			if(analyticsDataError && analyticsDataError.value === "InvalidKey")
-			{
-				$("#enabledDebugging").addClass("hidden");
-				$("#noDebug").removeClass("hidden");
-			}else if(localStorage.secretKey && localStorage.secretKey.length){
-				$("#enabledDebugging").removeClass("hidden");
-				$("#noDebug").addClass("hidden");
-			}
-				
-		
-			if(analyticsDataHeader)
-			{
-				
-				if(domLoaded)
+			chrome.devtools.inspectedWindow.eval("window.location.href", function(result){
+				windowHost = result;			
+						
+				if(request.request.url !== windowHost)
 				{
+					return;
+				}
+			
+				headers = request.response.headers;
+				var analyticsDataHeader = headers.find(function(x) { return x.name.toLowerCase() === 'sitecore.analytics.data' });
+				var analyticsDataError = headers.find(function(x) { return x.name.toLowerCase() === 'sitecore.analytics.error' });
+		  
+				if(!analyticsDataHeader || (analyticsDataError && analyticsDataError.value === "InvalidKey"))
+				{
+					$("#enabledDebugging").addClass("hidden");
+					$("#noDebug").removeClass("hidden");
+				}else if(localStorage.secretKey && localStorage.secretKey.length){
+					$("#enabledDebugging").removeClass("hidden");
+					$("#noDebug").addClass("hidden");
+				}
+								
+				if(analyticsDataHeader)
+				{					
 					var analyticsData = JSON.parse(analyticsDataHeader.value);					
-					
+												
 					setPageProfileValues(analyticsData);
 					setMatchedProfileValues(analyticsData);
 					setGeolocationValues(analyticsData);
-				}
 
-			}
+				}
 		});	  
 		
 	});
